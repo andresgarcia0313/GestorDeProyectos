@@ -10,7 +10,7 @@ services:
       POSTGRES_DB: dbgestionapp
     volumes:
       - ./datos/db:/var/lib/postgresql/data
-  redmine:
+  web:
     image: redmine:5.0.0-alpine
     restart: always
     ports:
@@ -21,8 +21,9 @@ services:
       REDMINE_DB_PASSWORD: Asde71.4
     volumes:
       - ./datos/app:/usr/src/redmine/files
+      - ./datos/themes/PurpleMine2:/usr/src/redmine/public/themes/PurpleMine2
     depends_on:
       - db
-#admin
-#admin
-#Ingresar a configuración y establecer flujos por defecto
+#Administrador
+#asde71.4
+#https://www.redmine.org/plugins?utf8=%E2%9C%93&page=1&sort=rating&v=5.0
