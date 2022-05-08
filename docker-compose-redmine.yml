@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Asde71.4
+      POSTGRES_USER: postgres
+      POSTGRES_ROOT_PASSWORD: Asde71.4
+      POSTGRES_DB: dbgestionapp
+    volumes:
+      - ./datos/db:/var/lib/postgresql/data
+  redmine:
+    image: redmine:5.0.0-alpine
+    restart: always
+    ports:
+      - 80:3000
+    environment:
+      REDMINE_DB_POSTGRES: db
+      REDMINE_DB_DATABASE: dbgestionapp
+      REDMINE_DB_PASSWORD: Asde71.4
+    volumes:
+      - ./datos/app:/usr/src/redmine/files
+    depends_on:
+      - db
+#admin
+#admin
+#Ingresar a configuración y establecer flujos por defecto
