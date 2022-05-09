@@ -4,7 +4,7 @@ docker exec -t gestordeproyectos-db-1 pg_dumpall -c -U postgres > copiadb.sql
 type copiadb.sql | docker exec -i gestordeproyectos-db-1 psql -U postgres -d dbgestionapp
 
 
-
+https://simplebackups.com/blog/docker-postgres-backup-restore-guide-with-examples/
 
 cat copiadb.sql | docker exec -i gestordeproyectos-db-1 psql -U postgres -d dbgestionapp
 
